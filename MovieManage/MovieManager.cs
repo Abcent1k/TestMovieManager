@@ -20,7 +20,7 @@ namespace MovieManage
 
 		public void AddNewGenre(string genre)
 		{
-			if (genre == null || genre.Length == 0)
+			if (string.IsNullOrEmpty(genre))
 				throw new ArgumentException(genre);
 			if (Genres.Contains(genre))
 				throw new InvalidOperationException("That genre already exists!");
@@ -30,10 +30,20 @@ namespace MovieManage
 
 		public void RemoveGenre(string genre)
 		{
-			if (genre == null || genre.Length == 0)
+			if (string.IsNullOrEmpty(genre))
 				throw new ArgumentException(genre);
 			 if (!Genres.Remove(genre))
 				throw new InvalidOperationException("There is no such genre!");
+		}
+		public List<Movie> GetMoviesByGenre(string genre, IMovieSortingStrategy sortingStrategy)
+		{
+			var filteredMovies = Movies.Where(m => m.Genre == genre).ToList();
+			return sortingStrategy.Sort(filteredMovies);
+		}
+		public List<Movie> GetFavorieteMovies(IMovieSortingStrategy sortingStrategy)
+		{
+			var filteredMovies = Movies.Where(m => m.Favoriete == true).ToList();
+			return sortingStrategy.Sort(filteredMovies);
 		}
 	}
 }
