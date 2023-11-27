@@ -8,14 +8,16 @@ namespace MovieManage
 {
 	public class MovieManager
 	{
-		public List<Movie> Movies { get; }
+		protected List<Movie> _movies;
+		protected List<string> _genres;
 
-		public List<string> Genres { get; }
+		public List<Movie> Movies { get { return _movies; } protected set { _movies = value; } }
+		public List<string> Genres { get { return _genres; } protected set { _genres = value; } }
 
 		public MovieManager()
 		{
-			Movies = new List<Movie>();
-			Genres = new List<string>();
+			_movies = new List<Movie>();
+			_genres = new List<string>();
 		}
 
 		public void AddNewGenre(string genre)
@@ -40,9 +42,9 @@ namespace MovieManage
 			var filteredMovies = Movies.Where(m => m.Genre == genre).ToList();
 			return sortingStrategy.Sort(filteredMovies);
 		}
-		public List<Movie> GetFavorieteMovies(IMovieSortingStrategy sortingStrategy)
+		public List<Movie> GetFavouriteMovies(IMovieSortingStrategy sortingStrategy)
 		{
-			var filteredMovies = Movies.Where(m => m.Favoriete == true).ToList();
+			var filteredMovies = _movies.Where(m => m.Favourite == true).ToList();
 			return sortingStrategy.Sort(filteredMovies);
 		}
 	}
