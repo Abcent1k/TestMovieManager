@@ -12,15 +12,14 @@ namespace UnitTest56
             // Arrange
             var movieManager = new MovieManager();
             var movieTitle = "Inception";
-            movieManager.Movies.Add(new Movie(movieTitle, "Sci-Fi", "Christopher Nolan", false));
+            var movieT = new Movie(movieTitle, "Sci-Fi", "Christopher Nolan", false);
+            movieManager.Movies.Add(movieT);
 
             // Act
             movieManager.AddMovieToFavorites(movieTitle);
 
             // Assert
-            var movie = movieManager.Movies.FirstOrDefault(m => m.Title == movieTitle);
-            Assert.NotNull(movie);
-            Assert.True(movie.Favoriete);
+            Assert.True(movieT.Favoriete);
         }
 
         [Fact]
@@ -29,15 +28,14 @@ namespace UnitTest56
             // Arrange
             var movieManager = new MovieManager();
             var movieTitle = "The Shawshank Redemption";
-            movieManager.Movies.Add(new Movie(movieTitle, "Drama", "Frank Darabont", true));
+            var movieT = new Movie(movieTitle, "Drama", "Frank Darabont", true);
+            movieManager.Movies.Add(movieT);
 
             // Act
             movieManager.RemoveMovieFromFavorites(movieTitle);
 
             // Assert
-            var movie = movieManager.Movies.FirstOrDefault(m => m.Title == movieTitle);
-            Assert.NotNull(movie);
-            Assert.False(movie.Favoriete);
+            Assert.False(movieT.Favoriete);
         }
 
         [Fact]
