@@ -89,5 +89,28 @@ namespace TestProject1
             Assert.Equal("Frank Darabont", result[0].Director);
             Assert.Equal("Christopher Nolan", result[2].Director);
         }
+        [Fact]
+        public void GetFavouriteMovies_NoMoviesAreFavourite_ShouldReturnEmptyList()
+        {
+            // Arrange
+            var movieManager = new MovieManager();
+            var sortingStrategy = new SortByTitleAlphabetically();
+
+            var moviesToAdd = new List<Movie>
+            {
+                new Movie("Inception", "Sci-Fi", "Christopher Nolan", false),
+                new Movie("The Dark Knight", "Action", "Christopher Nolan", false),
+                new Movie("The Shawshank Redemption", "Drama", "Frank Darabont", false)
+            };
+
+            movieManager.Movies.AddRange(moviesToAdd);
+
+            // Act
+            var result = movieManager.GetFavouriteMovies(sortingStrategy);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Empty(result); 
+        }
     }
 }
