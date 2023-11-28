@@ -35,7 +35,35 @@ namespace MovieManage
 			 if (!Genres.Remove(genre))
 				throw new InvalidOperationException("There is no such genre!");
 		}
-		public List<Movie> GetMoviesByGenre(string genre, IMovieSortingStrategy sortingStrategy)
+
+        public void AddMovieToFavorites(string title)
+        {
+            var movie = Movies.FirstOrDefault(m => m.Title == title);
+
+            if (movie != null)
+            {
+                movie.Favoriete = true;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Movie with title '{title}' not found.");
+            }
+        }
+
+        public void RemoveMovieFromFavorites(string title)
+        {
+            var movie = Movies.FirstOrDefault(m => m.Title == title);
+
+            if (movie != null)
+            {
+                movie.Favoriete = false;
+            }
+            else
+            {
+                throw new InvalidOperationException($"Movie with title '{title}' not found.");
+            }
+        }
+        public List<Movie> GetMoviesByGenre(string genre, IMovieSortingStrategy sortingStrategy)
 		{
 			var filteredMovies = Movies.Where(m => m.Genre == genre).ToList();
 			return sortingStrategy.Sort(filteredMovies);
