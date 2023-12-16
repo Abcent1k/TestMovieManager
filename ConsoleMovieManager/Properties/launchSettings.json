@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ConsoleMovieManager": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

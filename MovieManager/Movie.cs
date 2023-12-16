@@ -11,23 +11,23 @@ namespace MovieManage
 		public string Title { get; }
 		public string Genre { get; }
 		public string Director { get; }
-		public bool Favoriete { get; set; }
+		public bool Favourite { get; set; }
 
 		private Movie() { }
 
-		public Movie(string title, string genre, string director, bool favoriete) : this()
+		public Movie(string title, string genre, string director, bool favourite) : this()
 		{
 			Title = title;
 			Genre = genre;
 			Director = director;
-			Favoriete = favoriete;
+			Favourite = favourite;
 		}
 		public Movie(string title, string genre, string director) : this()
 		{
 			Title = title;
 			Genre = genre;
 			Director = director;
-			Favoriete = false;
+			Favourite = false;
 		}
 	}
 }

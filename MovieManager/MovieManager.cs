@@ -71,10 +71,37 @@ namespace MovieManage
 			return sortingStrategy.Sort(filteredMovies);
 		}
 
-		public List<Movie> GetFavorieteMovies(IMovieSortingStrategy sortingStrategy)
+		public List<Movie> GetFavouriteMovies(IMovieSortingStrategy sortingStrategy)
 		{
-			var filteredMovies = Movies.Where(m => m.Favoriete == true).ToList();
+			var filteredMovies = Movies.Where(m => m.Favourite == true).ToList();
 			return sortingStrategy.Sort(filteredMovies);
+		}
+
+		public void AddMovieToFavorites(string title)
+		{
+			var movie = Movies.FirstOrDefault(m => m.Title == title);
+
+			if (movie != null)
+			{
+				movie.Favourite = true;
+			}
+			else
+			{
+				throw new InvalidOperationException($"Movie with title '{title}' not found.");
+			}
+		}
+		public void RemoveMovieFromFavorites(string title)
+		{
+			var movie = Movies.FirstOrDefault(m => m.Title == title);
+
+			if (movie != null)
+			{
+				movie.Favourite = false;
+			}
+			else
+			{
+				throw new InvalidOperationException($"Movie with title '{title}' not found.");
+			}
 		}
 	}
 }
