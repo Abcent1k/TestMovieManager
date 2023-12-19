@@ -5,9 +5,11 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMovieManager", "TestMovieManager\TestMovieManager.csproj", "{C55AE66C-088D-4BF2-AF1E-CC4D37FA01F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieManager", "MovieManager\MovieManager.csproj", "{7BC02184-21FC-4805-A59F-7253CB3B4C6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieManager", "MovieManager\MovieManager.csproj", "{7BC02184-21FC-4805-A59F-7253CB3B4C6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMovieManager", "ConsoleMovieManager\ConsoleMovieManager.csproj", "{64BCB1A6-55A3-4C78-8605-34A47C829888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleMovieManager", "ConsoleMovieManager\ConsoleMovieManager.csproj", "{64BCB1A6-55A3-4C78-8605-34A47C829888}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FBD58B13-C077-491F-97CD-59ADB2B35CC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{64BCB1A6-55A3-4C78-8605-34A47C829888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64BCB1A6-55A3-4C78-8605-34A47C829888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64BCB1A6-55A3-4C78-8605-34A47C829888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD58B13-C077-491F-97CD-59ADB2B35CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD58B13-C077-491F-97CD-59ADB2B35CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD58B13-C077-491F-97CD-59ADB2B35CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD58B13-C077-491F-97CD-59ADB2B35CC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
